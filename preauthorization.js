@@ -45,7 +45,7 @@ cardtype:'V',
 cardexpiredate:'2312',
 cardcvc2:'123',
 
-successurl:'https://google.de/success',
+successurl:'https://victortstonline.github.io/success.html',
 errorurl:'https://google.de/errorurl',
 backurl:'https://google.de/backurl'
 
