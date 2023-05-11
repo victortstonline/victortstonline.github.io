@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example Page</title>
+</head>
+<body>
+	<h1>Example Page</h1>
+	<p id="message"></p>
+
+	<script>
+		// Wait for the page to load
+		window.onload = function() {
+			// Get the message from the query string
+			const params = new URLSearchParams(window.location.search);
+			const message = params.get("message");
+
+			// Display the message on the page
+			const messageElement = document.getElementById("message");
+			messageElement.textContent = message;
+		};
+	</script>
+</body>
+</html>
