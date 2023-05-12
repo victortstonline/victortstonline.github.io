@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Error  Page</title>
+	<title>Success Page</title>
 </head>
 <body>
 	<h1>Success!</h1>
 	<p>Transaction ID: <span id="transactionId"></span></p>
-	<p>TX ID: <span id="txId"></span></p>
-	<p>CS: <span id="cs"></span></p>
+	<p>Transaction ID (txid): <span id="txId"></span></p>
+	<p>Checksum (cs): <span id="cs"></span></p>
 
 	<script>
 		// Get the referral URL from the browser's address bar
 		const referralUrl = window.location.href;
+		console.log('Referral URL:', referralUrl);
 
 		// Extract the query string from the referral URL
 		const queryString = referralUrl.split('?')[1];
+		console.log('Query String:', queryString);
 
 		// Split the query string into an array of key-value pairs
 		const queryParams = queryString.split('&');
+		console.log('Query Parameters:', queryParams);
 
 		// Loop through the key-value pairs and extract the values for the desired parameters
 		for (const queryParam of queryParams) {
