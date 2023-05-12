@@ -4,24 +4,32 @@
 	<title>Success Page</title>
 </head>
 <body>
-	<div id="transaction-info">
-		<!-- The transaction information will be displayed here -->
-	</div>
+	<h1>Success!</h1>
+	<p>Transaction ID: <span id="transactionId"></span></p>
+	<p>TX ID: <span id="txId"></span></p>
+	<p>CS: <span id="cs"></span></p>
+
 	<script>
-		// Get the query string from the URL
-		const queryString = window.location.search;
+		// Get the referral URL from the browser's address bar
+		const referralUrl = window.location.href;
 
-		// Parse the query string into an object
-		const urlParams = new URLSearchParams(queryString);
+		// Extract the query string from the referral URL
+		const queryString = referralUrl.split('?')[1];
 
-		// Extract the values of the transactionid, txid, and cs parameters
-		const transactionId = urlParams.get('transactionid');
-		const txId = urlParams.get('txid');
-		const cs = urlParams.get('cs');
+		// Split the query string into an array of key-value pairs
+		const queryParams = queryString.split('&');
 
-		// Update the contents of the transaction-info div with the transaction information
-		const transactionInfoDiv = document.getElementById('transaction-info');
-		transactionInfoDiv.innerHTML = `Transaction ID: ${transactionId}<br>Transaction ID (txid): ${txId}<br>Checksum (cs): ${cs}`;
+		// Loop through the key-value pairs and extract the values for the desired parameters
+		for (const queryParam of queryParams) {
+			const [key, value] = queryParam.split('=');
+			if (key === 'transactionid') {
+				document.getElementById('transactionId').textContent = value;
+			} else if (key === 'txid') {
+				document.getElementById('txId').textContent = value;
+			} else if (key === 'cs') {
+				document.getElementById('cs').textContent = value;
+			}
+		}
 	</script>
 </body>
 </html>
