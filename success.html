@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Example Page</title>
+	<title>Success Page</title>
 </head>
 <body>
-	<h1>Example Page</h1>
-	<p id="message"></p>
-
+	<div id="transaction-info">
+		<!-- The transaction information will be displayed here -->
+	</div>
 	<script>
-		// Wait for the page to load
-		window.onload = function() {
-			// Get the message from the query string
-			const params = new URLSearchParams(window.location.search);
-			const message = params.get("message");
+		// Get the query string from the URL
+		const queryString = window.location.search;
 
-			// Display the message on the page
-			const messageElement = document.getElementById("message");
-			messageElement.textContent = message;
-		};
+		// Parse the query string into an object
+		const urlParams = new URLSearchParams(queryString);
+
+		// Extract the values of the transactionid, txid, and cs parameters
+		const transactionId = urlParams.get('transactionid');
+		const txId = urlParams.get('txid');
+		const cs = urlParams.get('cs');
+
+		// Update the contents of the transaction-info div with the transaction information
+		const transactionInfoDiv = document.getElementById('transaction-info');
+		transactionInfoDiv.innerHTML = `Transaction ID: ${transactionId}<br>Transaction ID (txid): ${txId}<br>Checksum (cs): ${cs}`;
 	</script>
 </body>
 </html>
