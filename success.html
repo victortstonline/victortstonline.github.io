@@ -5,31 +5,13 @@
 </head>
 <body>
 	<h1>Success!</h1>
-	<p>Transaction ID: <span id="transactionId"></span></p>
-	<p>Transaction ID (txid): <span id="txId"></span></p>
-	<p>Checksum (cs): <span id="cs"></span></p>
+	<p>Result: <span id="result"></span></p>
+
 
 	<script>
 		// Get the referral URL from the browser's address bar
 		const referralUrl = window.location.href;
-
-		// Extract the query string from the referral URL
-		const queryString = referralUrl.indexOf('?') !== -1 ? referralUrl.split('?')[1] : '';
-
-		// Split the query string into an array of key-value pairs
-		const queryParams = queryString.split('&');
-
-		// Loop through the key-value pairs and extract the values for the desired parameters
-		for (const queryParam of queryParams) {
-			const [key, value] = queryParam.split('=');
-			if (key === 'transactionid') {
-				document.getElementById('transactionId').textContent = value;
-			} else if (key === 'txid') {
-				document.getElementById('txId').textContent = value;
-			} else if (key === 'cs') {
-				document.getElementById('cs').textContent = value;
-			}
-		}
+		document.getElementById('result').textContent = referralUrl;
 	</script>
 </body>
 </html>
